@@ -1,6 +1,10 @@
 PDFs=$(sort $(patsubst %.txt,%.pdf,$(wildcard messages/message_*.txt)))
 
-all: messages/messages.txt postits21_trame.pdf postits21.pdf
+all: postit postits21_trame.pdf postits21.pdf
+
+postit: messages/messages.txt pdf
+
+pdf: $(PDFs)
 
 postits21_trame.pdf: postits_trame.pdf
 	pdfjam postits_trame.pdf --nup 3x7 --outfile postits21_trame.pdf
@@ -36,4 +40,3 @@ messages/messages.txt: messages.txt
 
 clean:
 	rm -f messages/* *pdf
-

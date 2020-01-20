@@ -1,0 +1,10 @@
+\documentclass{memoir}
+\usepackage{geometry}\geometry{left=8mm,right=7mm,top=0mm,bottom=2mm,paperwidth=60mm,paperheight=39mm}
+\begin{document}
+\thispagestyle{empty}
+\topskip0pt
+\vspace*{\fill}
+\centering
+MESSAGE
+\vspace*{\fill}
+\end{document}

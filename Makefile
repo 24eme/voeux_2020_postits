@@ -35,4 +35,5 @@ messages/messages.txt: messages.txt
 	cat messages/message_*.txt > messages/messages.txt
 
 clean:
-	rm messages/*
+	rm -f messages/* *pdf
+

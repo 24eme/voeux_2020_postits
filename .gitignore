@@ -2,3 +2,4 @@
 *.swp
 messages.txt
 messages/
+bin/config.inc

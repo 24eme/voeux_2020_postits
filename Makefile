@@ -2,9 +2,7 @@ PDFs=$(sort $(patsubst %.txt,%.pdf,$(wildcard messages/message_*.txt)))
 
 all: postit postits21_trame.pdf postits21.pdf
 
-postit: messages/messages.txt pdf
-
-pdf: $(PDFs)
+postit: download_messages
 
 postits21_trame.pdf: postits_trame.pdf
 	pdfjam postits_trame.pdf --nup 3x7 --outfile postits21_trame.pdf
@@ -33,10 +31,10 @@ message_%.sed: message_%.txt
 	cat $< | tr '\n' ' '   >> $@
 	echo "/" >> $@
 
-messages/messages.txt: messages.txt
+download_messages:
 	mkdir -p messages
-	bash generate_messages.sh
-	cat messages/message_*.txt > messages/messages.txt
+	bash bin/generate_messages.sh
+	make postits21.pdf
 
 clean:
 	rm -f messages/* *pdf
